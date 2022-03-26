@@ -1,37 +1,80 @@
-## Welcome to GitHub Pages
+# Model Checking Notes
 
-You can use the [editor on GitHub](https://github.com/yepengding/ModelCheckingNotes/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## Correct System
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A system satisfies its specifications.
 
-### Markdown
+## System Properties
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Safety
+    - Nothing bad should happen.
+    - Delcare what should not happen or what should always happen.
+    - Counterexample: a trace of states, where the last state contradicts the property.
 
-```markdown
-Syntax highlighted code block
+- Liveness
+    - Something bad never happens.
+    - Declare what should eventually happen.
+    - Counterexample: an infinite path (e.g., a loop) that never reaches the specified state.
 
-# Header 1
-## Header 2
-### Header 3
+## Model Checking Features
 
-- Bulleted
-- List
+1. Automatic verification (falsification)
+2. Finite systems (extensible to infinite systems)
+3. Temporal logic
 
-1. Numbered
-2. List
+## Common Techniques
 
-**Bold** and _Italic_ and `Code` text
+- Enumeration
+    - Check properties by explicitly enumerating reachable states.
+- Symbolic model checking
+    - Sets of states are represented implicitly by Boolean functions. Check a property with Reduced Ordered Binary
+      Decision Diagrams.
+- Bounded model checking
+    - Check a property by searching for a counterexample in executions whose length is bounded by some integer k with
+      SAT techniques.
 
-[Link](url) and ![Image](src)
-```
+## Transition System
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+$\mathfrak{T} \triangleq (S, {\to})$
 
-### Jekyll Themes
+- $S$ is a set of states, and
+- ${\to} \subseteq S \times S$ is a transition relation.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yepengding/ModelCheckingNotes/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Transition System Variations
 
-### Support or Contact
+### Labeled Transition System
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+$\mathfrak{L} \triangleq (S, L, {\to})$
+
+- $S$ is a set of states,
+- $L$ is a set of labels, and
+- ${\to} \subseteq S \times L \times S$ is a transition relation.
+
+### Kripke Structure
+
+$\mathfrak{K} \triangleq (S, I, {\to}, \mathcal{L})$
+
+- $S$ is a set of states,
+- $I \subseteq S$ is a set of initial states,
+- ${\to} \subseteq S \times S$ is a transition relation, and
+- $\mathcal{L}: S \mapsto \wp(P)$ is a labeling function, where $P$ is a set of atomic propositions and $\wp(P)$ denotes
+  the powerset over $P$.
+
+> Clarification: the label set $L$ of a $\mathfrak{L}$ has no direct relation to the labeling function $\mathcal{L}$ of a $\mathfrak{K}$. Therefore, I use the name `Labeled Kripke Structure` for a variation defined below by using the semantics of the word `labeled` in `Labeled Transition System` to introduce labels (i.e., actions) into `Kripke Structure`.
+
+### Labeled Kripke Structure
+
+$\mathfrak{K}' \triangleq (S, I, A, {\to}, \mathcal{L})$
+
+- $S$ is a set of states,
+- $I \subseteq S$ is a set of initial states,
+- $A$ is a set of actions,
+- ${\to} \subseteq S \times S$ is a transition relation, and
+- $\mathcal{L}: S \mapsto \wp(P)$ is a labeling function.
+
+---
+
+# References
+
+- Biere, A., Cimatti, A., Clarke, E. M., Strichman, O., & Zhu, Y. (2003). Bounded model checking.
+- Baier, C., & Katoen, J. P. (2008). Principles of model checking. MIT press.
