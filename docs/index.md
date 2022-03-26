@@ -96,11 +96,11 @@ $\mathfrak{S} \triangleq (S, I, A, {\to}, \mathcal{L})$
 
 Given a $\mathfrak{S}$, the set of successors of $s \in S$ is defined as:
 
-$\textit{Succ}(s) = \bigcup\limits_{a \in A} \{ s' \in S ~|~ s \xrightarrow{a} s' \}$
+$\textit{Succ}(s) = \bigcup\limits_{a \in A} \{ s' \in S \mid s \xrightarrow{a} s' \}$
 
 The set of predecessors is defined as:
 
-$\textit{Pred}(s) = \bigcup\limits_{a \in A} \{ s' \in S ~|~ s' \xrightarrow{a} s \}$
+$\textit{Pred}(s) = \bigcup\limits_{a \in A} \{ s' \in S \mid s' \xrightarrow{a} s \}$
 
 ## Terminal State
 
@@ -112,15 +112,15 @@ A $\mathfrak{S}$ can be `action-deterministic` and `AP-deterministic`.
 
 ### Action-Deterministic
 
-- $|I| \leq 1$, and
-- $\forall s \in S, a \in A: |\textit{Succ}(s, a) \leq 1|$.
+- $\lvert I \rvert \leq 1$, and
+- $\forall s \in S, a \in A: \lvert \textit{Succ}(s, a) \rvert \leq 1$.
 
 ### AP-deterministic
 
 $\forall p \in \wp(P):$
 
-- $|\{ s \in I | \mathcal{L}(s) = p \}| \leq 1$, and
-- $\forall s \in S: |\textit{Succ}(s) \cap \{ s' \in S | \mathcal{L}(s') = p \}| \leq 1$.
+- $\lvert\{ s \in I \mid \mathcal{L}(s) = p \} \rvert \leq 1$, and
+- $\forall s \in S: \lvert\textit{Succ}(s) \cap \{ s' \in S \mid \mathcal{L}(s') = p \}\rvert \leq 1$.
 
 # Behaviors
 
@@ -134,7 +134,7 @@ A `finite path fragment` $\hat{\pi}$ of $\mathfrak{S}$ is a finite state sequenc
 
 $\forall i \in (0, n]: s_i \in \textit{Post}(s_{i-1})$ where $n \geq 0$.
 
-An `infinite path fragment` $\pi$ is an infinite state sequence $(s_0, s_1, s_2, \dots)$ such that 
+An `infinite path fragment` $\pi$ is an infinite state sequence $(s_0, s_1, s_2, \dots)$ such that
 
 $\forall i > 0: s_i \in \textit{Post}(s_{i-1})$.
 
@@ -145,6 +145,7 @@ A path fragment $(s_0, s_1, s_2, \dots)$ is called `initial` if $s_0 \in I$.
 ### Maximal Path Fragment
 
 A `maximal` path fragment is either a finite path fragment that ends in a terminal state, or an infinite path fragment.
+
 
 ---
 
