@@ -94,13 +94,13 @@ $\mathfrak{S} \triangleq (S, I, A, {\to}, \mathcal{L})$
 
 ## Predecessor and Successor
 
-Given a $\mathfrak{S}$, the set of successors of $s \in S$ is defined as:
-
-$\textit{Succ}(s) = \bigcup\limits_{a \in A} \{ s' \in S \mid s \xrightarrow{a} s' \}$
-
-The set of predecessors is defined as:
+Given a $\mathfrak{S}$, the set of predecessors of $s \in S$ is defined as:
 
 $\textit{Pred}(s) = \bigcup\limits_{a \in A} \{ s' \in S \mid s' \xrightarrow{a} s \}$
+
+The set of successors is defined as:
+
+$\textit{Succ}(s) = \bigcup\limits_{a \in A} \{ s' \in S \mid s \xrightarrow{a} s' \}$
 
 ## Terminal State
 
@@ -146,6 +146,17 @@ A path fragment $(s_0, s_1, s_2, \dots)$ is called `initial` if $s_0 \in I$.
 
 A `maximal` path fragment is either a finite path fragment that ends in a terminal state, or an infinite path fragment.
 
+## Trace
+
+Given a $\mathfrak{S}$ without terminal states,
+
+- trace $\mathcal{T}(\hat{\pi})=(\mathcal{L}(s_0), \mathcal{L}(s_1), \dots, \mathcal{L}(s_n))$,
+
+where $\hat{\pi}=(s_0, s_1, \dots, s_n)$ is a *finite path fragment*;
+
+- trace $\mathcal{T}(\pi)=(\mathcal{L}(s_0), \mathcal{L}(s_1), \mathcal{L}(s_2), \dots)$,
+
+where $\pi = (s_0, s_1, s_2, \dots)$ is an *infinite path fragment*.
 
 ---
 
