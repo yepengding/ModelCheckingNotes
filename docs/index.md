@@ -70,7 +70,7 @@ $\mathfrak{K} \triangleq (S, I, {\to}, \mathcal{L})$
 - $\mathcal{L}: S \mapsto \wp(P)$ is a labeling function, where $P$ is a set of atomic propositions and $\wp(P)$ denotes
   the powerset over $P$.
 
-> Clarification: the label set $L$ of a $\mathfrak{L}$ has no direct relation to the labeling function $\mathcal{L}$ of a $\mathfrak{K}$. Therefore, I use the name *Labeled Kripke Structure* for a variation defined below by using the semantics of the word *labeled* in *Labeled Transition System* to introduce labels (i.e., actions) into *Kripke Structure*.
+> Clarification: the label set $L$ of a $\mathfrak{L}$ has no direct relation to the labeling function $\mathcal{L}$ of a $\mathfrak{K}$. Therefore, I use the name **Labeled Kripke Structure** for a variation defined below by using the semantics of the word **labeled** in **Labeled Transition System** to introduce labels (i.e., actions) into *Kripke Structure*.
 
 ### Labeled Kripke Structure
 
