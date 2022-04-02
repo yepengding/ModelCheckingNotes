@@ -86,7 +86,8 @@ $\mathfrak{S} \triangleq (S, I, A, {\to}, \mathcal{L})$
 - $I \subseteq S$ is a set of initial states,
 - $A$ is a set of actions,
 - ${\to} \subseteq S \times S$ is a transition relation, and
-- $\mathcal{L}: S \mapsto \wp(P)$ is a labeling function.
+- $\mathcal{L}: S \mapsto \wp(P)$ is a labeling function, where $P$ is a set of atomic propositions and $\wp(P)$ denotes
+  the powerset over $P$.
 
 > Clarification: the label set $L$ of a $\mathfrak{L}$ has no direct relation to the labeling function $\mathcal{L}$ of a $\mathfrak{K}$. Therefore, I use the name **Labeled Kripke Structure** for the variation defined above by using the semantics of the word **labeled** in **Labeled Transition System** to introduce labels (e.g., actions) into *Kripke Structure*.
 
@@ -124,6 +125,31 @@ $\forall p \in \wp(P):$
 
 # Behaviors
 
+## Execution
+
+An `execution` of $\mathfrak{S}$ is an initial, execution path fragment.
+
+### Execution Fragment
+
+A `finite execution fragment` $\hat{\rho}$ of $\mathfrak{S}$ is an alternating sequence of states and actions that
+starts and ends with a state $\hat{\rho} = (s_0, a_1, s_1, a_2, \dots, a_n, s_n)$ such that
+
+$\forall i \in [0, n): s_i \xrightarrow{a_{i+1}} s_{i+1}$ where $n \geq 0$.
+
+An `infinite execution fragment` $\rho$ of $\mathfrak{S}$ is an infinite, alternating sequence of states and actions
+$\hat{\rho} = (s_0, a_1, s_1, a_2, s_2, a_3, \dots)$ such that
+
+$\forall i \geq 0: s_i \xrightarrow{a_{i+1}} s_{i+1}$.
+
+### Initial Execution Fragment
+
+An execution fragment $(s_0, a_1, s_1, \dots)$ is called `initial` if $s_0 \in I$.
+
+### Maximal Execution Fragment
+
+A `maximal execution fragment` is either a finite execution fragment that ends in a terminal state, or an infinite
+execution fragment.
+
 ## Path
 
 A `path` of $\mathfrak{S}$ is an initial, maximal path fragment.
@@ -132,11 +158,11 @@ A `path` of $\mathfrak{S}$ is an initial, maximal path fragment.
 
 A `finite path fragment` $\hat{\pi}$ of $\mathfrak{S}$ is a finite state sequence $(s_0, s_1, \dots, s_n)$ such that
 
-$\forall i \in (0, n]: s_i \in \textit{Post}(s_{i-1})$ where $n \geq 0$.
+$\forall i \in (0, n]: s_i \in \textit{Succ}(s_{i-1})$ where $n \geq 0$.
 
 An `infinite path fragment` $\pi$ is an infinite state sequence $(s_0, s_1, s_2, \dots)$ such that
 
-$\forall i > 0: s_i \in \textit{Post}(s_{i-1})$.
+$\forall i > 0: s_i \in \textit{Succ}(s_{i-1})$.
 
 ### Initial Path Fragment
 
@@ -157,6 +183,19 @@ where $\hat{\pi}=(s_0, s_1, \dots, s_n)$ is a *finite path fragment*;
 - trace $\mathcal{T}(\pi)=(\mathcal{L}(s_0), \mathcal{L}(s_1), \mathcal{L}(s_2), \dots)$,
 
 where $\pi = (s_0, s_1, s_2, \dots)$ is an *infinite path fragment*.
+
+# Temporal Logic
+
+## Linear Temporal Logic
+
+The syntax of LTL formulae over the set $P$ of atomic proposition (with $p \in P$) is defined as
+
+$\varphi ::= \top \mid p \mid \varphi_1 \land \varphi_2 \mid \neg \varphi \mid \bigcirc \varphi \mid \varphi_1 \amalg
+\varphi_2$, where $\bigcirc$ is read as `next` and $\amalg$ is read as `until`.
+
+$\amalg$ derives $\Diamond$ (`eventually`) and $\Box$ (`always`) where
+
+$\Diamond \varphi \triangleq \top \amalg \varphi$ and $\Box \varphi \triangleq \neg \Diamond \neg \varphi$.
 
 ---
 
