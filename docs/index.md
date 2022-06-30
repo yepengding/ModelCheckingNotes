@@ -197,6 +197,15 @@ $\amalg$ derives $\Diamond$ (`eventually`) and $\Box$ (`always`) where
 
 $\Diamond \varphi \triangleq \top \amalg \varphi$ and $\Box \varphi \triangleq \neg \Diamond \neg \varphi$.
 
+## Computation Tree Logic
+
+The syntax of CTL formulae over the set $P$ of atomic proposition (with $p \in P$) is defined as
+
+$\Phi ::= \top \mid p \mid \Phi_1 \land \Phi_2 \mid \neg \Phi \mid \exists \varphi \mid \forall \varphi$, where $\varphi$ is a path formula defined as
+
+$\varphi ::= \bigcirc \Phi \mid \Phi_1 \amalg \Phi_2$
+where $\Phi, \Phi_1, \Phi_2$ are state formulae.
+
 ---
 
 # References
